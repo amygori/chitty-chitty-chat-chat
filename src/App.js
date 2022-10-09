@@ -32,9 +32,12 @@ function App() {
         <>
           <header>
             <h1>Chitty-chitty-chat-chat 💬</h1>
-            <button onClick={logOut}>Log Out</button>
+            <div>
+              <p>logged in as {user.displayName}</p>
+              <button onClick={logOut}>Log Out</button>
+            </div>
           </header>
-          <ChatRoom db={db} />
+          <ChatRoom db={db} loggedInUser={user} />
         </>
       ) : (
         <LogIn auth={auth} />
