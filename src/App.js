@@ -1,7 +1,7 @@
 import './App.css'
 import { initializeApp } from 'firebase/app'
 
-import { getAuth } from 'firebase/auth'
+import { getAuth, signOut } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
 
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -25,9 +25,20 @@ const db = getFirestore(app)
 
 function App() {
   const [user] = useAuthState(auth)
+  const logOut = () => signOut(auth)
   return (
     <div className="App">
-      {user ? <ChatRoom db={db} /> : <LogIn auth={auth} />}
+      {user ? (
+        <>
+          <header>
+            <h1>Chitty-chitty-chat-chat 💬</h1>
+            <button onClick={logOut}>Log Out</button>
+          </header>
+          <ChatRoom db={db} />
+        </>
+      ) : (
+        <LogIn auth={auth} />
+      )}
     </div>
   )
 }
