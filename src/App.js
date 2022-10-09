@@ -7,6 +7,7 @@ import { getFirestore } from 'firebase/firestore'
 import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { ChatRoom } from './ChatRoom'
+import LogIn from './LogIn'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
@@ -23,9 +24,10 @@ const auth = getAuth(app)
 const db = getFirestore(app)
 
 function App() {
+  const [user] = useAuthState(auth)
   return (
     <div className="App">
-      <ChatRoom db={db} />
+      {user ? <ChatRoom db={db} /> : <LogIn auth={auth} />}
     </div>
   )
 }
