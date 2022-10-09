@@ -29,15 +29,15 @@ function App() {
   const logOut = () => signOut(auth)
   return (
     <div className="App">
-      {user ? (
-        <>
-          <header>
-            <nav className="navbar is-info">
-              <div className="navbar-brand">
-                <h1 className="title is-1 navbar-item">
-                  💬 Chitty-chitty-chat-chat
-                </h1>
-              </div>
+      <>
+        <header>
+          <nav className="navbar is-info">
+            <div className="navbar-brand">
+              <h1 className="title is-1 navbar-item">
+                💬 Chitty-chitty-chat-chat
+              </h1>
+            </div>
+            {user && (
               <div className="navbar-menu">
                 <div className="navbar-end">
                   <div className="navbar-item">
@@ -52,15 +52,17 @@ function App() {
                   </div>
                 </div>
               </div>
-            </nav>
-          </header>
-          <main className="m-6">
+            )}
+          </nav>
+        </header>
+        <main className="m-6">
+          {user ? (
             <ChatRoom db={db} loggedInUser={user} />
-          </main>
-        </>
-      ) : (
-        <LogIn auth={auth} />
-      )}
+          ) : (
+            <LogIn auth={auth} />
+          )}
+        </main>
+      </>
     </div>
   )
 }
