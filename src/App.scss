@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+/*** BULMA VARIABLE OVERRIDES ***/
+$family-monospace: 'Cutive', monospace;
+
+
+@import "~bulma/bulma";
+@import url('https://fonts.googleapis.com/css2?family=Cutive:wght@400;700');
+@import "~@fortawesome/fontawesome-free";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";

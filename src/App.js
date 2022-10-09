@@ -1,4 +1,5 @@
-import './App.css'
+import 'bulma'
+import './App.scss'
 import { initializeApp } from 'firebase/app'
 
 import { getAuth, signOut } from 'firebase/auth'
@@ -6,8 +7,8 @@ import { getFirestore } from 'firebase/firestore'
 
 import { useAuthState } from 'react-firebase-hooks/auth'
 
-import { ChatRoom } from './ChatRoom'
-import LogIn from './LogIn'
+import { ChatRoom } from './components/ChatRoom'
+import LogIn from './components/LogIn'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
@@ -31,13 +32,31 @@ function App() {
       {user ? (
         <>
           <header>
-            <h1>Chitty-chitty-chat-chat 💬</h1>
-            <div>
-              <p>logged in as {user.displayName}</p>
-              <button onClick={logOut}>Log Out</button>
-            </div>
+            <nav className="navbar is-info">
+              <div className="navbar-brand">
+                <h1 className="title is-1 navbar-item">
+                  💬 Chitty-chitty-chat-chat
+                </h1>
+              </div>
+              <div className="navbar-menu">
+                <div className="navbar-end">
+                  <div className="navbar-item">
+                    <div className="field is-grouped">
+                      <p className="navbar-item has-text-white">
+                        logged in as {user.displayName}
+                      </p>
+                      <button onClick={logOut} className="button navbar-item">
+                        Log Out
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
           </header>
-          <ChatRoom db={db} loggedInUser={user} />
+          <main className="m-6">
+            <ChatRoom db={db} loggedInUser={user} />
+          </main>
         </>
       ) : (
         <LogIn auth={auth} />
