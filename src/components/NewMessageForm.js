@@ -6,13 +6,15 @@ const NewMessageForm = ({ db, loggedInUser }) => {
   const [newMessage, setNewMessage] = useState('')
 
   const sendMessage = async () => {
-    await addDoc(collection(db, 'messages'), {
-      username: loggedInUser.displayName,
-      text: newMessage,
-      createdAt: new Date(),
-      uid: uid(),
-    })
-    setNewMessage('')
+    if (newMessage) {
+      await addDoc(collection(db, 'messages'), {
+        username: loggedInUser.displayName,
+        text: newMessage,
+        createdAt: new Date(),
+        uid: uid(),
+      })
+      setNewMessage('')
+    }
   }
 
   const handleSubmit = (e) => {
