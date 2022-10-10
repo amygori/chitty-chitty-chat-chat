@@ -20,6 +20,7 @@ const ChatRoom = ({ db, loggedInUser }) => {
                 text={msg.text}
                 username={msg.username}
                 key={msg.uid}
+                ownMsg={msg.username === loggedInUser.displayName}
               />
             ))}
         </div>
@@ -31,11 +32,15 @@ const ChatRoom = ({ db, loggedInUser }) => {
   )
 }
 
-const ChatMessage = ({ text, username }) => {
+const ChatMessage = ({ text, username, ownMsg }) => {
+  const cssClasses = ownMsg ? 'is-info has-text-white' : 'is-warning'
+
   return (
     <div className="is-family-monospace block">
-      <p className="has-text-weight-bold">{username} </p>
-      <p className="">{text}</p>
+      <p className={`tag is-small ${cssClasses} has-text-weight-bold my-1`}>
+        {username}{' '}
+      </p>
+      <p className={``}>{text}</p>
     </div>
   )
 }
