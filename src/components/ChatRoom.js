@@ -1,4 +1,4 @@
-import { collection, addDoc, query, orderBy, limit } from 'firebase/firestore'
+import { collection, query, orderBy, limit } from 'firebase/firestore'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 import NewMessageForm from './NewMessageForm'
 const ChatRoom = ({ db, loggedInUser }) => {
