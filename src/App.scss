@@ -2,9 +2,10 @@
 
 /*** BULMA VARIABLE OVERRIDES ***/
 $family-monospace: 'Cutive', monospace;
+$family-sans-serif: 'Roboto', sans-serif;
 
 
 @import "~bulma/bulma";
-@import url('https://fonts.googleapis.com/css2?family=Cutive:wght@400;700');
+@import url('https://fonts.googleapis.com/css2?family=Cutive:wght@400;700&Roboto:weight@400');
 @import "~@fortawesome/fontawesome-free";
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";

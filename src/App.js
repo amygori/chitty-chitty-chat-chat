@@ -33,7 +33,7 @@ function App() {
         <header>
           <nav className="navbar is-info">
             <div className="navbar-brand">
-              <h1 className="title is-1 navbar-item">
+              <h1 className="title is-4 navbar-item">
                 💬 Chitty-chitty-chat-chat
               </h1>
             </div>

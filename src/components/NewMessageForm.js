@@ -35,7 +35,7 @@ const NewMessageForm = ({ db, loggedInUser }) => {
               />
             </div>
             <div className="control">
-              <button className="button is-info is-medium" type="submit">
+              <button className="button is-info is-medium " type="submit">
                 <span>send</span>
                 <span class="icon">
                   <i class="fa-solid fa-paper-plane"></i>
